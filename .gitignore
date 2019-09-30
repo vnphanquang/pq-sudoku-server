@@ -1,0 +1,11 @@
+.vscode/
+# dependencies
+node_modules/
+client/
+
+# environment variables
+.env
+
+# generic ignores
+gitignore
+
