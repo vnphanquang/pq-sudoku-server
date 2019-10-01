@@ -1,4 +1,6 @@
 const path = require('path');
+// Environment variables
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 // inits express app
 const express = require('express');
 const app = express();
@@ -12,9 +14,9 @@ connectDB();
 app.use(express.json({extended: false}));
 
 // setups client
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'client/build')))
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 
 app.post('/api/feedback', async (req, res) => {
@@ -30,10 +32,7 @@ app.post('/api/feedback', async (req, res) => {
 });
 
 // starts server
-const PORT = process.env.port || 3001;
+const PORT = process.env.port || process.env.API_PORT || 3001;
 app.listen(PORT, () => {
-  // if (process.env.NODE_ENV === 'development') {
-  // } else {
-  // }
   console.log(`Server started at http://localhost:${PORT}`);
 })
