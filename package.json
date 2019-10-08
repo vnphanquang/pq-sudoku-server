@@ -1,6 +1,6 @@
 {
   "name": "pqsudoku-server",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "server API for pqSudoku",
   "main": "server",
   "scripts": {
