@@ -7,7 +7,7 @@ const app = express();
 
 // connects database
 const connectDB = require('./db');
-connectDB();
+// connectDB();
 
 // inits middleware
 app.use(express.json({extended: false}));
@@ -20,7 +20,8 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/feedback', require('./routes/feedback'));
-app.use('/api/solution', require('./routes/api/solution'));
+app.use('/api/solver', require('./routes/api/solver'));
+app.use('/api/generator', require('./routes/api/generator'));
 
 // starts server
 const PORT = process.env.port || process.env.API_PORT || 3001;
