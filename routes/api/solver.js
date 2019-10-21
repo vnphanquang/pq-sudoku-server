@@ -149,9 +149,7 @@ async function backtrack(values, cells, valueToCellsMap, timeout) {
     }
 
   }
-
   return {
-    isTimeout,
     unsolvable,
   }
 }
